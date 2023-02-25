@@ -71,26 +71,6 @@ void initialize(){
   #endif
 }
 
-// DEBUGGING (Serial functions)
-#if IS_DEBUG
-void listFiles(){
-  if (!card.init(SPI_HALF_SPEED, CS)) {
-    Serial.println("init failed");
-    while (1);
-  } else {
-    Serial.println("Wiring is correct and a card is present.");
-  }
-  if (!volume.init(card)) {
-    Serial.println("Could not find FAT16/FAT32 partition.\nMake sure you've formatted the card");
-    while (1);
-  }
-  Serial.println("Files found on the card (name, date and size in bytes): ");
-  root.openRoot(volume);
-  root.ls(LS_R | LS_DATE | LS_SIZE);
-  Serial.println("\n");
-}
-#endif
-
 // SD Card Functions v1.0 rachelhandran  2.10.23
 void readFile(String fileName){
     myFile = SD.open(fileName);
@@ -164,7 +144,7 @@ void setup() {
   initialize();
   
   //listFiles();
-  delay(10000); // Wait 10s in case need to upload new program
+  delay(5000); // Wait 10s in case need to upload new program
   
 }
 
