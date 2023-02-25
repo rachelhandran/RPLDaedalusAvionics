@@ -1,3 +1,5 @@
+// CAREFUL! Before uploading this code for writing, check to ensure DEBUG IS FALSE
+
 #include <Wire.h>
 #include <SPI.h>
 #include <SD.h>
@@ -10,8 +12,8 @@
 #define BMP_CS 10
 #define SEALEVELPRESSURE_HPA (1013.25) // bmp
 
-#define IS_DEBUG TRUE //FALSE cancels most print statements, all functions read/write still work
-#define IS_DEBUG_BMP FALSE 
+#define IS_DEBUG FALSE // Keep FALSE cancels most print statements, all functions read/write still work
+#define IS_DEBUG_BMP FALSE // Keep FALSE
 
 File myFile;
 const int CS = 10;
@@ -45,20 +47,12 @@ String readBMP() {
   
   String bmp_output = String(bmp.temperature) + "*C," + String(bmp.pressure/100.0) + "hPa," + String(bmp.readAltitude(SEALEVELPRESSURE_HPA)) + "m" ;
   
-  #if not IS_DEBUG_BMP
-  return bmp_output;
-  //delay(5000);
-  #endif
-  
-  #if IS_DEBUG_BMP
-  Serial.print("Temperature (*C) = ");
-  Serial.println(bmp.temperature);
-  Serial.print("Pressure (hPa) = ");
-  Serial.println(bmp.pressure / 100.0);
-  Serial.print("Approx. Altitude (m) = ");
-  Serial.println(bmp.readAltitude(SEALEVELPRESSURE_HPA));
-  delay(2000);
-  #endif
+  if(!IS_DEBUG_BMP){
+    return bmp_output;  
+  }
+  else {
+    return "Temperature (*C) = " + String(bmp.temperature) + "\nPressure (hPa) = " + String(bmp.pressure/100.0) + "\nApprox. Altitude (m) = " + String(bmp.readAltitude(SEALEVELPRESSURE_HPA));
+  }
 }
 
 void initialize(){
@@ -158,9 +152,6 @@ void deleteFile(String fileName){
   }
 }
 
-//TODO Check existence
-
-
 // -------------------------------
 //           CODE HERE
 
@@ -172,15 +163,16 @@ void setup() {
   setupBMP(); 
   initialize();
   
-  listFiles();
+  //listFiles();
+  delay(10000); // Wait 10s in case need to upload new program
   
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   
-  //writeFile("test6.txt", readBMP());  
-  //Serial.println(readBMP());
-  //delay(5000);
+  writeFile("test7.txt", readBMP());  
+  Serial.println(readBMP());
+  delay(100);
 
 }
