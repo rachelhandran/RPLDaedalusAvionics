@@ -51,13 +51,6 @@ String readBMP() {
   else {
     return "Temperature (*C) = " + String(bmp.temperature) + "\nPressure (hPa) = " + String(bmp.pressure/100.0) + "\nApprox. Altitude (m) = " + String(bmp.readAltitude(SEALEVELPRESSURE_HPA));
   }
-
-  
-  //#if IS_DEBUG_BMP
-  //return "hi";
-  //#endif
-
-
 }
 
 void initialize(){
@@ -167,6 +160,7 @@ void setup() {
     }
   setupBMP(); 
   initialize();
+  delay(5000);
   
   //listFiles();
   //readFile("test7.txt");
@@ -175,6 +169,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.println(readBMP());
-  delay(1000);
+  //Serial.println(readBMP());
+  //delay(1000);
 }
