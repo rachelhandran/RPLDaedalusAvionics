@@ -144,14 +144,14 @@ void setup() {
   initialize();
   
   //listFiles();
-  delay(5000); // Wait 10s in case need to upload new program
+  delay(10000); // Wait 10s in case need to upload new program
   
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   
-  writeFile("test7.txt", readBMP());  
+  writeFile("test10.txt", readBMP());  
   Serial.println(readBMP());
   delay(100);
 
