@@ -4,7 +4,7 @@ This is the flight computer for our NMP Avionics system.
 
 *The software is designed for BMP388 only. Software is necessarily compatible for BMP280. Hardware IS compatible with both, but you must write your own code for the BMP280.*
 
-flightComputer.ino has the main system. Once uploaded, there will be a 5s delay, then the BMP388 sensor will read in temp, pressure, and altitude data, and write to a file in the SD card every second.
+flightComputer.ino has the main system. Once uploaded, there will be a 5s delay, then the BMP388 sensor will read in temp, pressure, and altitude data, and write to a file in the SD card once every 100ms.
 
 flightCompDebug.ino is outdated. It was a duplicate sandbox code to practice and debug. 
 
