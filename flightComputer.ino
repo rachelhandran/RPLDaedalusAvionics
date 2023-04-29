@@ -1,4 +1,14 @@
 // CAREFUL! Before uploading this code for writing, check to ensure DEBUG IS FALSE
+// CAREFUL!!! Go to the loop() function and change the test number
+
+// RPL NMP Flight Computer v1.0 rachelhandran  4.28.23
+
+// INFO:
+// This code will execute by setting up the SD card and BMP sensor.
+// It will wait 5 seconds.
+// It will read and write to a text file every 100ms.
+// To pause: Turn off battery
+// To restart: Click arduino reset button
 
 #include <Wire.h>
 #include <SPI.h>
@@ -108,7 +118,7 @@ void writeFile(String fileName, String contents){
     myFile.close();
   } else {
     // if the file didn't open, print an error:
-    Serial.println("error opening test.txt");
+    Serial.println("error opening file");
   }
 }
 
@@ -144,14 +154,14 @@ void setup() {
   initialize();
   
   //listFiles();
-  delay(10000); // Wait 10s in case need to upload new program
-  
+  delay(5000); // Wait 10s in case need to upload new program
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
-  writeFile("test10.txt", readBMP());  
+
+  // CHANGE THE NUMBER! 1-99 for real flight, 100+ tests 
+  writeFile("test213.txt", readBMP());  
   Serial.println(readBMP());
   delay(100);
 
