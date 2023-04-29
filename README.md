@@ -8,12 +8,15 @@ This is the flight computer for our NMP Avionics system.
 
 `flightCompDebug.ino` is outdated. It was a duplicate sandbox code to practice and debug. 
 
-# Hardware:
+## Hardware Setup:
 ## Avionics PCB:
 Ensure the BMP388 and BMP280 are wired/soldered to the PCB correctly. 
 On the PCB, GND is the 2nd pin from the right. Match the GND pin of your component (BMP280) and the GND pin on the PCB when orienting your components to ensure functionality.
+![Image](PCBbmp280OrientationBack.png)
+![Image](PCBbmp280OrientationBoth.png)
+![Image](PCBbmp280OrientationFront.png)
 
-# Procedure:
+## Procedure:
 1. Solder PCB components: Arduino Nano, BMP388, SD Card Module, and battery. Ensure you have a new battery. Keep battery OFF. Mount an SD Card.
 2. Download flightComputer.ino to your Arduino IDE.
 3. Edit flightComputer.ino to Arduino Nano. For testing, ensure number in the filename in line 164 is 100+. If flying, change number to 1-99. This helps for post-processing to distinguish the correct data.
