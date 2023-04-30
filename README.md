@@ -10,6 +10,7 @@ This is the flight computer for our NMP Avionics system.
 
 ## Hardware Setup:
 ## Avionics PCB:
+Schematic: ![Schematic](NMPAvionicsSchematic.png)
 Ensure the BMP388 and BMP280 are wired/soldered to the PCB correctly. 
 On the PCB, GND is the 2nd pin from the right. Match the GND pin of your component (BMP280) and the GND pin on the PCB when orienting your components to ensure functionality.
 ![Image](PCBbmp280OrientationBack.png)
