@@ -3,7 +3,7 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
@@ -584,7 +584,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="177.165" y="67.945" size="1.27" layer="21" font="vector" rot="R180"/>
 <attribute name="VALUE" x="177.165" y="70.485" size="1.27" layer="21" font="vector" rot="R180"/>
 </element>
-<element name="J1" library="con-molex" package="6410-06" value="22-27-2061-06" x="115.57" y="67.945" smashed="yes" rot="R270">
+<element name="SDCARD" library="con-molex" package="6410-06" value="22-27-2061-06" x="115.57" y="67.945" smashed="yes" rot="R270">
 <attribute name="MF" value="MOLEX" x="80.01" y="45.085" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="80.01" y="45.085" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="110.8441" y="75.5381" size="1.016" layer="25" ratio="10" rot="R270"/>
@@ -593,7 +593,7 @@ design rules under a new name.</description>
 <attribute name="POPULARITY" value="0" x="80.01" y="45.085" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="110.8441" y="67.0291" size="0.8128" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="J2" library="con-molex" package="6410-08" value="22-27-2081-08" x="135.89" y="67.945" smashed="yes" rot="R270">
+<element name="BMP388" library="con-molex" package="6410-08" value="22-27-2081-08" x="135.89" y="67.945" smashed="yes" rot="R270">
 <attribute name="MF" value="MOLEX" x="110.49" y="32.385" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="110.49" y="32.385" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="131.1641" y="77.9511" size="1.016" layer="25" ratio="10" rot="R270"/>
@@ -602,7 +602,7 @@ design rules under a new name.</description>
 <attribute name="POPULARITY" value="0" x="110.49" y="32.385" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="131.1641" y="64.6161" size="0.8128" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="J3" library="con-molex" package="6410-02" value="22-27-2021-02" x="75.565" y="73.66" smashed="yes" rot="MR270">
+<element name="BATTERY" library="con-molex" package="6410-02" value="22-27-2021-02" x="75.565" y="73.66" smashed="yes" rot="MR270">
 <attribute name="MF" value="MOLEX" x="100.965" y="54.61" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="MPN" value="" x="100.965" y="54.61" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="100.965" y="54.61" size="1.778" layer="28" rot="MR270" display="off"/>
@@ -610,7 +610,7 @@ design rules under a new name.</description>
 <attribute name="POPULARITY" value="0" x="100.965" y="54.61" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="80.1639" y="76.1731" size="0.8128" layer="28" ratio="10" rot="MR270"/>
 </element>
-<element name="X1" library="con-molex@1" package="22-23-2061" value="" x="130.175" y="67.945" smashed="yes" rot="R90">
+<element name="BMP280" library="con-molex@1" package="22-23-2061" value="" x="130.175" y="67.945" smashed="yes" rot="R90">
 <attribute name="MF" value="MOLEX" x="130.175" y="67.945" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="22-23-2061" x="130.175" y="67.945" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="126.365" y="60.325" size="1.016" layer="25" ratio="10" rot="R90"/>
@@ -622,12 +622,12 @@ design rules under a new name.</description>
 </elements>
 <signals>
 <signal name="GND">
-<contactref element="J1" pad="1"/>
+<contactref element="SDCARD" pad="1"/>
 <contactref element="ARDUINO_NANO1" pad="14"/>
-<contactref element="J2" pad="6"/>
-<contactref element="J3" pad="1"/>
+<contactref element="BMP388" pad="6"/>
+<contactref element="BATTERY" pad="1"/>
 <contactref element="ARDUINO_NANO1" pad="19"/>
-<contactref element="X1" pad="5"/>
+<contactref element="BMP280" pad="5"/>
 <wire x1="115.57" y1="61.595" x2="120.65" y2="66.675" width="0.508" layer="16"/>
 <wire x1="120.65" y1="74.93" x2="116.84" y2="78.74" width="0.508" layer="16"/>
 <wire x1="116.84" y1="78.74" x2="81.915" y2="78.74" width="0.508" layer="16"/>
@@ -641,33 +641,33 @@ design rules under a new name.</description>
 <wire x1="146.685" y1="75.565" x2="151.765" y2="60.325" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="3VO">
-<contactref element="J2" pad="7"/>
+<contactref element="BMP388" pad="7"/>
 <contactref element="ARDUINO_NANO1" pad="2"/>
-<contactref element="X1" pad="6"/>
+<contactref element="BMP280" pad="6"/>
 <wire x1="177.165" y1="75.565" x2="175.26" y2="73.66" width="0.1524" layer="16"/>
 <wire x1="175.26" y1="73.66" x2="136.525" y2="73.66" width="0.1524" layer="16"/>
 <wire x1="136.525" y1="73.66" x2="135.89" y2="74.295" width="0.1524" layer="16"/>
 <wire x1="135.89" y1="74.295" x2="130.175" y2="74.295" width="0.1524" layer="16"/>
 </signal>
 <signal name="SCL">
-<contactref element="J2" pad="5"/>
+<contactref element="BMP388" pad="5"/>
 <contactref element="ARDUINO_NANO1" pad="9"/>
-<contactref element="X1" pad="4"/>
+<contactref element="BMP280" pad="4"/>
 <wire x1="159.385" y1="75.565" x2="153.035" y2="69.215" width="0.1524" layer="1"/>
 <wire x1="153.035" y1="69.215" x2="135.89" y2="69.215" width="0.1524" layer="1"/>
 <wire x1="135.89" y1="69.215" x2="130.175" y2="69.215" width="0.1524" layer="1"/>
 </signal>
 <signal name="SDA">
-<contactref element="J2" pad="3"/>
+<contactref element="BMP388" pad="3"/>
 <contactref element="ARDUINO_NANO1" pad="8"/>
-<contactref element="X1" pad="3"/>
+<contactref element="BMP280" pad="3"/>
 <wire x1="161.925" y1="75.565" x2="150.495" y2="64.135" width="0.1524" layer="1"/>
 <wire x1="150.495" y1="64.135" x2="135.89" y2="64.135" width="0.1524" layer="1"/>
 <wire x1="135.89" y1="64.135" x2="132.715" y2="64.135" width="0.1524" layer="1"/>
 <wire x1="132.715" y1="64.135" x2="130.175" y2="66.675" width="0.1524" layer="1"/>
 </signal>
 <signal name="CS">
-<contactref element="J1" pad="6"/>
+<contactref element="SDCARD" pad="6"/>
 <contactref element="ARDUINO_NANO1" pad="28"/>
 <wire x1="174.625" y1="60.325" x2="185.42" y2="71.12" width="0.1524" layer="1"/>
 <wire x1="185.42" y1="76.835" x2="182.245" y2="80.01" width="0.1524" layer="1"/>
@@ -676,14 +676,14 @@ design rules under a new name.</description>
 <wire x1="185.42" y1="71.12" x2="185.42" y2="76.835" width="0.1524" layer="1"/>
 </signal>
 <signal name="SCK">
-<contactref element="J1" pad="5"/>
+<contactref element="SDCARD" pad="5"/>
 <contactref element="ARDUINO_NANO1" pad="1"/>
 <wire x1="179.705" y1="75.565" x2="176.53" y2="78.74" width="0.1524" layer="1"/>
 <wire x1="122.555" y1="78.74" x2="115.57" y2="71.755" width="0.1524" layer="1"/>
 <wire x1="176.53" y1="78.74" x2="122.555" y2="78.74" width="0.1524" layer="1"/>
 </signal>
 <signal name="MOSI">
-<contactref element="J1" pad="4"/>
+<contactref element="SDCARD" pad="4"/>
 <contactref element="ARDUINO_NANO1" pad="29"/>
 <wire x1="177.165" y1="60.325" x2="173.355" y2="56.515" width="0.1524" layer="1"/>
 <wire x1="173.355" y1="56.515" x2="112.395" y2="56.515" width="0.1524" layer="1"/>
@@ -692,7 +692,7 @@ design rules under a new name.</description>
 <wire x1="109.855" y1="63.5" x2="115.57" y2="69.215" width="0.1524" layer="1"/>
 </signal>
 <signal name="MOSO">
-<contactref element="J1" pad="3"/>
+<contactref element="SDCARD" pad="3"/>
 <contactref element="ARDUINO_NANO1" pad="30"/>
 <wire x1="179.705" y1="60.325" x2="175.895" y2="56.515" width="0.1524" layer="16"/>
 <wire x1="175.895" y1="56.515" x2="112.395" y2="56.515" width="0.1524" layer="16"/>
@@ -701,7 +701,7 @@ design rules under a new name.</description>
 <wire x1="109.855" y1="60.96" x2="115.57" y2="66.675" width="0.1524" layer="16"/>
 </signal>
 <signal name="VCC">
-<contactref element="J1" pad="2"/>
+<contactref element="SDCARD" pad="2"/>
 <contactref element="ARDUINO_NANO1" pad="12"/>
 <wire x1="151.765" y1="75.565" x2="149.225" y2="78.105" width="0.508" layer="1"/>
 <wire x1="149.225" y1="78.105" x2="127.635" y2="78.105" width="0.508" layer="1"/>
@@ -711,7 +711,7 @@ design rules under a new name.</description>
 <wire x1="117.5004" y1="66.19103125" x2="115.57" y2="64.26063125" width="0.508" layer="1"/>
 </signal>
 <signal name="9V">
-<contactref element="J3" pad="2"/>
+<contactref element="BATTERY" pad="2"/>
 <contactref element="ARDUINO_NANO1" pad="15"/>
 <wire x1="75.565" y1="74.93" x2="80.879" y2="80.244" width="0.508" layer="16"/>
 <wire x1="143.51" y1="76.35408125" x2="143.51" y2="76.2" width="0.508" layer="16"/>

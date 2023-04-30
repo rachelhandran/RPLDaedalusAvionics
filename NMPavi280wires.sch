@@ -1081,89 +1081,89 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 </class>
 </classes>
 <parts>
-<part name="J2" library="con-molex" deviceset="22-?-08" device="27-2081"/>
+<part name="BMP388" library="con-molex" deviceset="22-?-08" device="27-2081"/>
 <part name="ARDUINO_NANO1" library="ArduinoNanoV30" deviceset="ARDUINO_NANO" device=""/>
-<part name="J1" library="con-molex" deviceset="22-?-06" device="27-2061"/>
-<part name="J3" library="con-molex" deviceset="22-?-02" device="27-2021"/>
-<part name="X1" library="con-molex@1" deviceset="22-23-2061" device=""/>
+<part name="SDCARD" library="con-molex" deviceset="22-?-06" device="27-2061"/>
+<part name="BATTERY" library="con-molex" deviceset="22-?-02" device="27-2021"/>
+<part name="BMP280" library="con-molex@1" deviceset="22-23-2061" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 </plain>
 <instances>
-<instance part="J2" gate="-1" x="-55.88" y="93.98" smashed="yes" rot="R180">
+<instance part="BMP388" gate="-1" x="-55.88" y="93.98" smashed="yes" rot="R180">
 <attribute name="NAME" x="-58.42" y="94.742" size="1.524" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-55.118" y="92.583" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="J2" gate="-2" x="-55.88" y="99.06" smashed="yes" rot="R180">
+<instance part="BMP388" gate="-2" x="-55.88" y="99.06" smashed="yes" rot="R180">
 <attribute name="NAME" x="-58.42" y="99.822" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="J2" gate="-3" x="-55.88" y="104.14" smashed="yes" rot="R180">
+<instance part="BMP388" gate="-3" x="-55.88" y="104.14" smashed="yes" rot="R180">
 <attribute name="NAME" x="-58.42" y="104.902" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="J2" gate="-4" x="-55.88" y="109.22" smashed="yes" rot="R180">
+<instance part="BMP388" gate="-4" x="-55.88" y="109.22" smashed="yes" rot="R180">
 <attribute name="NAME" x="-58.42" y="109.982" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="J2" gate="-5" x="-55.88" y="114.3" smashed="yes" rot="R180">
+<instance part="BMP388" gate="-5" x="-55.88" y="114.3" smashed="yes" rot="R180">
 <attribute name="NAME" x="-58.42" y="115.062" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="J2" gate="-6" x="-55.88" y="119.38" smashed="yes" rot="R180">
+<instance part="BMP388" gate="-6" x="-55.88" y="119.38" smashed="yes" rot="R180">
 <attribute name="NAME" x="-58.42" y="120.142" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="J2" gate="-7" x="-55.88" y="124.46" smashed="yes" rot="R180">
+<instance part="BMP388" gate="-7" x="-55.88" y="124.46" smashed="yes" rot="R180">
 <attribute name="NAME" x="-58.42" y="125.222" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="J2" gate="-8" x="-55.88" y="129.54" smashed="yes" rot="R180">
+<instance part="BMP388" gate="-8" x="-55.88" y="129.54" smashed="yes" rot="R180">
 <attribute name="NAME" x="-58.42" y="130.302" size="1.524" layer="95" rot="R180"/>
 </instance>
 <instance part="ARDUINO_NANO1" gate="G$1" x="2.54" y="142.24" smashed="yes" rot="R180">
 <attribute name="NAME" x="17.78" y="172.72" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="17.78" y="175.26" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="J1" gate="-1" x="50.8" y="88.9" smashed="yes" rot="R270">
+<instance part="SDCARD" gate="-1" x="50.8" y="88.9" smashed="yes" rot="R270">
 <attribute name="NAME" x="50.038" y="86.36" size="1.524" layer="95" rot="R270"/>
-<attribute name="VALUE" x="52.197" y="89.662" size="1.778" layer="96" rot="R270"/>
+<attribute name="VALUE" x="55.118" y="87.757" size="1.778" layer="96"/>
 </instance>
-<instance part="J1" gate="-2" x="45.72" y="88.9" smashed="yes" rot="R270">
+<instance part="SDCARD" gate="-2" x="45.72" y="88.9" smashed="yes" rot="R270">
 <attribute name="NAME" x="44.958" y="86.36" size="1.524" layer="95" rot="R270"/>
 </instance>
-<instance part="J1" gate="-3" x="40.64" y="88.9" smashed="yes" rot="R270">
+<instance part="SDCARD" gate="-3" x="40.64" y="88.9" smashed="yes" rot="R270">
 <attribute name="NAME" x="39.878" y="86.36" size="1.524" layer="95" rot="R270"/>
 </instance>
-<instance part="J1" gate="-4" x="35.56" y="88.9" smashed="yes" rot="R270">
+<instance part="SDCARD" gate="-4" x="35.56" y="88.9" smashed="yes" rot="R270">
 <attribute name="NAME" x="34.798" y="86.36" size="1.524" layer="95" rot="R270"/>
 </instance>
-<instance part="J1" gate="-5" x="30.48" y="88.9" smashed="yes" rot="R270">
+<instance part="SDCARD" gate="-5" x="30.48" y="88.9" smashed="yes" rot="R270">
 <attribute name="NAME" x="29.718" y="86.36" size="1.524" layer="95" rot="R270"/>
 </instance>
-<instance part="J1" gate="-6" x="25.4" y="88.9" smashed="yes" rot="R270">
+<instance part="SDCARD" gate="-6" x="25.4" y="88.9" smashed="yes" rot="R270">
 <attribute name="NAME" x="24.638" y="86.36" size="1.524" layer="95" rot="R270"/>
 </instance>
-<instance part="J3" gate="-1" x="-66.04" y="162.56" smashed="yes" rot="R180">
+<instance part="BATTERY" gate="-1" x="-66.04" y="162.56" smashed="yes" rot="R180">
 <attribute name="NAME" x="-68.58" y="163.322" size="1.524" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-65.278" y="161.163" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="J3" gate="-2" x="-66.04" y="167.64" smashed="yes" rot="R180">
+<instance part="BATTERY" gate="-2" x="-66.04" y="167.64" smashed="yes" rot="R180">
 <attribute name="NAME" x="-68.58" y="168.402" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="X1" gate="-1" x="-60.96" y="68.58" smashed="yes" rot="R180">
+<instance part="BMP280" gate="-1" x="-60.96" y="68.58" smashed="yes" rot="R180">
 <attribute name="NAME" x="-63.5" y="69.342" size="1.524" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-60.198" y="67.183" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="X1" gate="-2" x="-60.96" y="71.12" smashed="yes" rot="R180">
+<instance part="BMP280" gate="-2" x="-60.96" y="71.12" smashed="yes" rot="R180">
 <attribute name="NAME" x="-63.5" y="71.882" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="X1" gate="-3" x="-60.96" y="73.66" smashed="yes" rot="R180">
+<instance part="BMP280" gate="-3" x="-60.96" y="73.66" smashed="yes" rot="R180">
 <attribute name="NAME" x="-63.5" y="74.422" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="X1" gate="-4" x="-60.96" y="76.2" smashed="yes" rot="R180">
+<instance part="BMP280" gate="-4" x="-60.96" y="76.2" smashed="yes" rot="R180">
 <attribute name="NAME" x="-63.5" y="76.962" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="X1" gate="-5" x="-60.96" y="78.74" smashed="yes" rot="R180">
+<instance part="BMP280" gate="-5" x="-60.96" y="78.74" smashed="yes" rot="R180">
 <attribute name="NAME" x="-63.5" y="79.502" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="X1" gate="-6" x="-60.96" y="81.28" smashed="yes" rot="R180">
+<instance part="BMP280" gate="-6" x="-60.96" y="81.28" smashed="yes" rot="R180">
 <attribute name="NAME" x="-63.5" y="82.042" size="1.524" layer="95" rot="R180"/>
 </instance>
 </instances>
@@ -1172,7 +1172,7 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <nets>
 <net name="GND" class="0">
 <segment>
-<pinref part="J1" gate="-1" pin="S"/>
+<pinref part="SDCARD" gate="-1" pin="S"/>
 <wire x1="50.8" y1="91.44" x2="50.8" y2="96.52" width="0.1524" layer="91"/>
 <label x="55.88" y="96.52" size="1.778" layer="95"/>
 </segment>
@@ -1182,12 +1182,12 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <label x="-30.48" y="132.08" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="J2" gate="-6" pin="S"/>
+<pinref part="BMP388" gate="-6" pin="S"/>
 <wire x1="-53.34" y1="119.38" x2="-48.26" y2="119.38" width="0.1524" layer="91"/>
 <label x="-45.72" y="119.38" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="J3" gate="-1" pin="S"/>
+<pinref part="BATTERY" gate="-1" pin="S"/>
 <wire x1="-63.5" y1="162.56" x2="-58.42" y2="162.56" width="0.1524" layer="91"/>
 <label x="-53.34" y="162.56" size="1.778" layer="95"/>
 </segment>
@@ -1197,14 +1197,14 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <label x="30.48" y="137.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="X1" gate="-5" pin="S"/>
+<pinref part="BMP280" gate="-5" pin="S"/>
 <wire x1="-58.42" y1="78.74" x2="-53.34" y2="78.74" width="0.1524" layer="91"/>
 <label x="-48.26" y="78.74" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="3VO" class="0">
 <segment>
-<pinref part="J2" gate="-7" pin="S"/>
+<pinref part="BMP388" gate="-7" pin="S"/>
 <wire x1="-53.34" y1="124.46" x2="-48.26" y2="124.46" width="0.1524" layer="91"/>
 <label x="-45.72" y="124.46" size="1.778" layer="95"/>
 </segment>
@@ -1214,14 +1214,14 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <label x="-30.48" y="162.56" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="X1" gate="-6" pin="S"/>
+<pinref part="BMP280" gate="-6" pin="S"/>
 <wire x1="-58.42" y1="81.28" x2="-53.34" y2="81.28" width="0.1524" layer="91"/>
 <label x="-48.26" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SCL" class="0">
 <segment>
-<pinref part="J2" gate="-5" pin="S"/>
+<pinref part="BMP388" gate="-5" pin="S"/>
 <wire x1="-53.34" y1="114.3" x2="-48.26" y2="114.3" width="0.1524" layer="91"/>
 <label x="-45.72" y="114.3" size="1.778" layer="95"/>
 </segment>
@@ -1231,14 +1231,14 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <label x="-30.48" y="144.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="X1" gate="-4" pin="S"/>
+<pinref part="BMP280" gate="-4" pin="S"/>
 <wire x1="-58.42" y1="76.2" x2="-53.34" y2="76.2" width="0.1524" layer="91"/>
 <label x="-48.26" y="76.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SDA" class="0">
 <segment>
-<pinref part="J2" gate="-3" pin="S"/>
+<pinref part="BMP388" gate="-3" pin="S"/>
 <wire x1="-53.34" y1="104.14" x2="-48.26" y2="104.14" width="0.1524" layer="91"/>
 <label x="-45.72" y="104.14" size="1.778" layer="95"/>
 </segment>
@@ -1248,14 +1248,14 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 <label x="-30.48" y="147.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="X1" gate="-3" pin="S"/>
+<pinref part="BMP280" gate="-3" pin="S"/>
 <wire x1="-58.42" y1="73.66" x2="-53.34" y2="73.66" width="0.1524" layer="91"/>
 <label x="-48.26" y="73.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CS" class="0">
 <segment>
-<pinref part="J1" gate="-6" pin="S"/>
+<pinref part="SDCARD" gate="-6" pin="S"/>
 <wire x1="25.4" y1="91.44" x2="25.4" y2="96.52" width="0.1524" layer="91"/>
 <label x="25.4" y="111.76" size="1.778" layer="95"/>
 </segment>
@@ -1267,7 +1267,7 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 </net>
 <net name="SCK" class="0">
 <segment>
-<pinref part="J1" gate="-5" pin="S"/>
+<pinref part="SDCARD" gate="-5" pin="S"/>
 <wire x1="30.48" y1="91.44" x2="30.48" y2="96.52" width="0.1524" layer="91"/>
 <label x="30.48" y="109.22" size="1.778" layer="95"/>
 </segment>
@@ -1279,7 +1279,7 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 </net>
 <net name="MOSI" class="0">
 <segment>
-<pinref part="J1" gate="-4" pin="S"/>
+<pinref part="SDCARD" gate="-4" pin="S"/>
 <wire x1="35.56" y1="91.44" x2="35.56" y2="96.52" width="0.1524" layer="91"/>
 <label x="35.56" y="106.68" size="1.778" layer="95"/>
 </segment>
@@ -1291,7 +1291,7 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 </net>
 <net name="MOSO" class="0">
 <segment>
-<pinref part="J1" gate="-3" pin="S"/>
+<pinref part="SDCARD" gate="-3" pin="S"/>
 <wire x1="40.64" y1="91.44" x2="40.64" y2="96.52" width="0.1524" layer="91"/>
 <label x="40.64" y="104.14" size="1.778" layer="95"/>
 </segment>
@@ -1303,7 +1303,7 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 </net>
 <net name="VCC" class="0">
 <segment>
-<pinref part="J1" gate="-2" pin="S"/>
+<pinref part="SDCARD" gate="-2" pin="S"/>
 <wire x1="45.72" y1="91.44" x2="45.72" y2="96.52" width="0.1524" layer="91"/>
 <label x="45.72" y="101.6" size="1.778" layer="95"/>
 </segment>
@@ -1315,7 +1315,7 @@ Each pin can provide or receive a maximum of 40 mA and has an internal pull-up r
 </net>
 <net name="9V" class="0">
 <segment>
-<pinref part="J3" gate="-2" pin="S"/>
+<pinref part="BATTERY" gate="-2" pin="S"/>
 <wire x1="-63.5" y1="167.64" x2="-58.42" y2="167.64" width="0.1524" layer="91"/>
 <label x="-53.34" y="167.64" size="1.778" layer="95"/>
 </segment>
