@@ -2,7 +2,7 @@
 
 This is the flight computer for our NMP Avionics system. 
 
-*The software is designed for BMP388 only. Software is necessarily compatible for BMP280. Hardware IS compatible with both, but you must write your own code for the BMP280.*
+*The software is designed for BMP388 only. Software is not necessarily compatible for BMP280. Hardware IS compatible with both, but you must write your own code for the BMP280.*
 
 `flightComputer.ino` is the flight program. Once uploaded, there will be a 5s delay, then the BMP388 sensor will read in temp, pressure, and altitude data, and write to a file in the SD card once every 100ms.
 
@@ -13,9 +13,10 @@ This is the flight computer for our NMP Avionics system.
 Schematic: ![Schematic](NMPAvionicsSchematic.png)
 Ensure the BMP388 and BMP280 are wired/soldered to the PCB correctly. 
 On the PCB, GND is the 2nd pin from the right. Match the GND pin of your component (BMP280) and the GND pin on the PCB when orienting your components to ensure functionality.
-![Image](PCBbmp280OrientationBack.png)
-![Image](PCBbmp280OrientationBoth.png)
-![Image](PCBbmp280OrientationFront.png)
+
+![PCB](PCBbmp280OrientationBoth.png)
+![PCB Front](PCBbmp280OrientationFront.png)
+![PCB Back](PCBbmp280OrientationBack.png)
 
 ## Procedure:
 1. Solder PCB components: Arduino Nano, BMP388, SD Card Module, and battery. Ensure you have a new battery. Keep battery OFF. Mount an SD Card.
