@@ -1,5 +1,7 @@
 # RPL NMP Avionics
 
+![Avi Setup](NMPAviBaySetup.png)
+
 This is the flight computer for our NMP Avionics system. 
 
 *The software is designed for BMP388 only. Software is not necessarily compatible for BMP280. Hardware IS compatible with both, but you must write your own code for the BMP280.*
@@ -18,7 +20,7 @@ On the PCB, GND is the 2nd pin from the right. Match the GND pin of your compone
 ![PCB Front](PCBbmp280OrientationFront.png)
 ![PCB Back](PCBbmp280OrientationBack.png)
 
-## Procedure:
+## Procedure (BMP388 only):
 1. Solder PCB components: Arduino Nano, BMP388, SD Card Module, and battery. Ensure you have a new battery. Keep battery OFF. Mount an SD Card.
 2. Download flightComputer.ino to your Arduino IDE.
 3. Edit flightComputer.ino to Arduino Nano. For testing, ensure number in the filename in line 164 is 100+. If flying, change number to 1-99. This helps for post-processing to distinguish the correct data.
