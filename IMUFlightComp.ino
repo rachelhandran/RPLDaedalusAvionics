@@ -136,21 +136,24 @@ void loop() {
   imu::Vector<3> gyr = myIMU.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
   imu::Vector<3> mag = myIMU.getVector(Adafruit_BNO055::VECTOR_MAGNETOMETER);
 
+
   String imu_output = String(accel) + "," + String(gyros)+ "," + String(mg) + "," + String(system)  + "," + 
       String(acc.x()) + "," + String(acc.y()) + "," + String(acc.z()) + "," + 
       String(gyr.x()) + "," + String(gyr.y()) + "," + String(gyr.z()) + "," +
-      String(mag.x()) + "," + String(mag.y()) + "," + String(mag.z()) + ",";
-      
-  //String bmp_output = String(bmp.temperature) + "*C," + String(bmp.pressure/100.0) + "hPa," + String(bmp.readAltitude(SEALEVELPRESSURE_HPA)) + "m" ;
+      String(mag.x()) + "," + String(mag.y()) + "," + String(mag.z()) + ","; 
+  
+  String altitude = String(bmp.readAltitude(SEALEVELPRESSURE_HPA));
 
+  //String combo = String(imu_output) + String(bmp_output);
   // Print to terminal
 
-
   Serial.println(imu_output);
-  //Serial.println(bmp_output);
+  //Serial.println(altitude);
+  //Serial.println(combo);
   
   // Write to SD Card file
-  //writeFile("test3.txt", bmp_output);
+  //writeFile("test5.txt", imu_output);
+  //writeFile("test4.txt", bmp_output);
 
   delay(BNO055_SAMPLERATE_DELAY_MS);
 }
