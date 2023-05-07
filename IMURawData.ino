@@ -7,15 +7,16 @@
 #define BNO055_SAMPLERATE_DELAY_MS (100)
 #define FIVE (5000)
 
-Adafruit_BNO055 myIMU = Adafruit_BNO055();
+//Adafruit_BNO055 myIMU = Adafruit_BNO055();
+Adafruit_BNO055 myIMU = Adafruit_BNO055(-1, 0x28, &Wire);
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(115200);  
+  Serial.begin(9600);  
   myIMU.begin();
   delay(1000);
   int8_t temp = myIMU.getTemp();
-  Serial.println(temp);
+  //Serial.println(temp);
   myIMU.setExtCrystalUse(true);
   //delay(FIVE);
 }
@@ -28,35 +29,12 @@ void loop() {
   imu::Vector<3> acc = myIMU.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
   imu::Vector<3> gyr = myIMU.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
   imu::Vector<3> mag = myIMU.getVector(Adafruit_BNO055::VECTOR_MAGNETOMETER);
-  
-  Serial.print(accel);
-  Serial.print(",");
-  Serial.print(gyros);
-  Serial.print(",");
-  Serial.print(mg);
-  Serial.print(",");
-  Serial.print(system);
-  Serial.print(",");
 
-  
-  Serial.print(acc.x());
-  Serial.print(",");
-  Serial.print(acc.y());
-  Serial.print(",");
-  Serial.print(acc.z());
-  Serial.print(",");
+  String imu_output = String(accel) + "," + String(gyros)+ "," + String(mg) + "," + String(system)  + "," + 
+      String(acc.x()) + "," + String(acc.y()) + "," + String(acc.z()) + "," + 
+      String(gyr.x()) + "," + String(gyr.y()) + "," + String(gyr.z()) + "," +
+      String(mag.x()) + "," + String(mag.y()) + "," + String(mag.z()) + ",";
+  Serial.println(imu_output);
 
-  Serial.print(gyr.x());
-  Serial.print(",");
-  Serial.print(gyr.y());
-  Serial.print(",");
-  Serial.print(gyr.z());
-  Serial.print(",");
-  
-  Serial.print(mag.x());
-  Serial.print(",");
-  Serial.print(mag.y());
-  Serial.print(",");
-  Serial.println(mag.z());
   delay(BNO055_SAMPLERATE_DELAY_MS);
 }

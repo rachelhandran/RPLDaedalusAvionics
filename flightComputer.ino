@@ -160,8 +160,8 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  // CHANGE THE NUMBER! 1-99 for real flight, 100+ tests 
-  writeFile("test213.txt", readBMP());  
+  // CHANGE THE NUMBER! 1-99 for real flight, 100+ for  basic tests, 300+ for IMU tests
+  writeFile("test212.txt", readBMP());  
   Serial.println(readBMP());
   delay(100);
 
