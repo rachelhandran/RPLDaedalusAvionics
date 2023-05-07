@@ -1,6 +1,21 @@
 # RPL NMP Avionics
 
-![Avi Setup](img/NMPAviBaySetup.png)
+## PCB v2.0
+5.6.23
+
+3D Views:
+![3D Front View](img/PCB3DFront.jpg)
+![3D Back View](img/PCB3DBack.jpg)
+
+
+Board: 
+![Board](img/NMPAvionicsBoard.jpg)
+Schematic: 
+![Schematic](img/NMPAvionicsSchematic.png)
+
+
+## v1.0
+
 
 This is the flight computer for our NMP Avionics system. 
 
@@ -10,9 +25,8 @@ This is the flight computer for our NMP Avionics system.
 
 `flightCompDebug.ino` is outdated. It was a duplicate sandbox code to practice and debug. 
 
-## Hardware Setup:
-## Avionics PCB:
-Schematic: ![Schematic](img/NMPAvionicsSchematic.png)
+### Hardware/PCB v1 Setup:
+![Avi Setup](img/NMPAviBaySetup.png)
 Ensure the BMP388 and BMP280 are wired/soldered to the PCB correctly. 
 On the PCB, GND is the 2nd pin from the right. Match the GND pin of your component (BMP280) and the GND pin on the PCB when orienting your components to ensure functionality.
 
