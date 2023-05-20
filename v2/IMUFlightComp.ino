@@ -58,25 +58,6 @@ void setupBMP() { //bmp
   bmp.setOutputDataRate(BMP3_ODR_50_HZ);
 }
 
-String readBMP() {
-  // readBMP reads the current value from the BMP388, returns a string in CSV format
-  if (! bmp.performReading()) {
-    #if IS_DEBUG_BMP
-    Serial.println("Failed to perform reading :(");
-    #endif
-    return;
-  }
-  
-  String bmp_output = String(bmp.temperature) + "*C," + String(bmp.pressure/100.0) + "hPa," + String(bmp.readAltitude(SEALEVELPRESSURE_HPA)) + "m" ;
-  
-  if(!IS_DEBUG_BMP){
-    return bmp_output;  
-  }
-  else {
-    return "Temperature (*C) = " + String(bmp.temperature) + "\nPressure (hPa) = " + String(bmp.pressure/100.0) + "\nApprox. Altitude (m) = " + String(bmp.readAltitude(SEALEVELPRESSURE_HPA));
-  }
-}
-
 // SD Card Functions
 void initialize(){
     #if IS_DEBUG
@@ -94,32 +75,6 @@ void initialize(){
   #endif
 }
 
-void createFile(String fileName){
-    myFile = SD.open(fileName, FILE_WRITE);
-  if (myFile) {
-    Serial.print("Creating " + fileName + "...\n");
-    myFile.close();
-    Serial.println("done.\n");
-  } else {
-    // if the file didn't open, print an error:
-    Serial.println("error opening " + fileName + "\n");
-  }
-}
-
-void writeFile(String fileName, String contents){
-    myFile = SD.open(fileName, FILE_WRITE);
-  if (myFile) {
-    #if IS_DEBUG
-    //Serial.print("Writing to " + fileName);
-    #endif
-    myFile.println(contents);
-    myFile.close();
-  } else {
-    // if the file didn't open, print an error:
-    Serial.println("error opening file");
-  }
-}
-
 // IMU Functions
 void setup() {
   // put your setup code here, to run once:
@@ -129,16 +84,12 @@ void setup() {
   setupBMP(); 
   myIMU.begin();
 
-  createFile("test.txt");
   int8_t temp = myIMU.getTemp();
   myIMU.setExtCrystalUse(true);
   delay(DELAY_FIVE);
 }
 
 void loop() {  
-  
-  //String bmp_output = String(bmp.temperature) + "*C," + String(bmp.pressure/100.0) + "hPa," + String(bmp.readAltitude(SEALEVELPRESSURE_HPA)) + "m" ;
-
   // put your main code here, to run repeatedly:
   uint8_t sys, gyros, accel, mg = 0;
   myIMU.getCalibration(&sys, &gyros, &accel,&mg);
@@ -196,7 +147,7 @@ void loop() {
   
   // Write to SD Card file
 
-  //Taken from writeFile() function above, for testing, copy that original code
+  //Taken from writeFile() function in previoous versions, for testing, copy that original code
   myFile = SD.open("BMPTEST2.txt", FILE_WRITE);
  
   myFile.print(bmp.temperature);
