@@ -4,6 +4,8 @@
  * Current working state: Prints out IMU calibration and accel, mag, 
  * and gyro data to the serial monitor and writes to a file called "IMUTESTX.txt" 
  * where X is a number
+ * CSV Format: calibration first, then raw data
+ *    system,accel,gyro,mg,acc.x(),acc.y(),acc.z(),gyr.x(),gyr.y(),gyr.z(),mag.x(),mag.y(),mag.z(),
 */
 
 #include <Adafruit_Sensor.h>
@@ -123,7 +125,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   
- initialize(); //SDcard
+  initialize(); //SDcard
   setupBMP(); 
   myIMU.begin();
 
@@ -160,62 +162,73 @@ void loop() {
 
 // NEW TESTS: 5.19.23
 /////Serial.println(imu_output);
+  Serial.println("");
+  Serial.print(sys);
+  Serial.print(",");  
+  Serial.print(accel);
+  Serial.print(",");  
+  Serial.print(gyros);
+  Serial.print(",");  
+  Serial.print(mg);
 
-  Serial.println(sys);
-  Serial.println(accel);
-  Serial.println(gyros);
-  Serial.println(mg);
+  Serial.print(",");  
+  Serial.print(acc.x());
+  Serial.print(",");  
+  Serial.print(acc.y());
+  Serial.print(",");  
+  Serial.print(acc.z());
 
-  Serial.print("Acc x: ");  
-  Serial.println(acc.x());
-  Serial.print("Acc y: ");  
-  Serial.println(acc.y());
-  Serial.print("Acc z: ");  
-  Serial.println(acc.z());
-  Serial.print("Mag x: ");  
-  Serial.println(mag.x());
-  Serial.print("Mag y: ");  
-  Serial.println(mag.y());
-  Serial.print("Mag z: ");  
-  Serial.println(mag.z());
-  Serial.print("Gyr x: ");  
-  Serial.println(gyr.x());
-  Serial.print("Gyr y: ");  
-  Serial.println(gyr.y());
-  Serial.print("Gyr z: ");  
-  Serial.println(gyr.z());
+  Serial.print(",");  
+  Serial.print(gyr.x());
+  Serial.print(",");  
+  Serial.print(gyr.y());
+  Serial.print(",");  
+  Serial.print(gyr.z());
+  
+  Serial.print(",");  
+  Serial.print(mag.x());
+  Serial.print(",");  
+  Serial.print(mag.y());
+  Serial.print(",");  
+  Serial.print(mag.z());
 
+  
   // Write to SD Card file
 
   //Taken from writeFile() function above, for testing, copy that original code
-  myFile = SD.open("IMUtest3.txt", FILE_WRITE);
-  myFile.write("syscal: ");
-  myFile.println(sys);
-  myFile.write("acccal: ");
-  myFile.println(accel);
-  myFile.write("gyrocal: ");
-  myFile.println(gyros);
-  myFile.write("mgcal: ");
-  myFile.println(mg);
+  myFile = SD.open("IMUtestX.txt", FILE_WRITE);
 
-  myFile.write("Acc.x: ");
-  myFile.println(acc.x());
-  myFile.write("Acc.y: ");
-  myFile.println(acc.y());
-  myFile.write("Acc.z: ");
-  myFile.println(acc.z());
-  myFile.write("Mag.x: ");
-  myFile.println(mag.x());
-  myFile.write("Mag.y: ");
-  myFile.println(mag.y());
-  myFile.write("Mag.z: ");
-  myFile.println(mag.z());
-  myFile.write("Gyr.x: ");
-  myFile.println(gyr.x());
-  myFile.write("Gyr.y: ");
-  myFile.println(gyr.y());
-  myFile.write("Gyr.z: ");
-  myFile.println(gyr.z());
+
+  myFile.print(sys);
+  myFile.write(",");
+  myFile.print(accel);
+  myFile.write(",");
+  myFile.print(gyros);
+  myFile.write(",");
+  myFile.print(mg);
+  myFile.write(",");
+  
+  myFile.print(acc.x());
+  myFile.write(",");
+  myFile.print(acc.y());
+  myFile.write(",");
+  myFile.print(acc.z());
+  myFile.write(",");
+
+  myFile.print(gyr.x());
+  myFile.write(",");
+  myFile.print(gyr.y());
+  myFile.write(",");
+  myFile.print(gyr.z());
+  
+  myFile.print(mag.x());
+  myFile.write(",");
+  myFile.print(mag.y());
+  myFile.write(",");
+  myFile.print(mag.z());
+  myFile.write("\n");
+
+
 
   myFile.close();
 
