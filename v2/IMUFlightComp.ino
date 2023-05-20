@@ -79,7 +79,9 @@ void initialize(){
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
-  
+
+  pinMode(2, OUTPUT);
+
   initialize(); //SDcard
   setupBMP(); 
   myIMU.begin();
@@ -90,6 +92,9 @@ void setup() {
 }
 
 void loop() {  
+  // Piezo buzzer 5.20.23
+  tone(2, 392); //G
+  
   // put your main code here, to run repeatedly:
   uint8_t sys, gyros, accel, mg = 0;
   myIMU.getCalibration(&sys, &gyros, &accel,&mg);
@@ -148,7 +153,7 @@ void loop() {
   // Write to SD Card file
 
   //Taken from writeFile() function in previoous versions, for testing, copy that original code
-  myFile = SD.open("BMPTEST2.txt", FILE_WRITE);
+  myFile = SD.open("BMPTEST3.txt", FILE_WRITE);
  
   myFile.print(bmp.temperature);
   myFile.write(",");
