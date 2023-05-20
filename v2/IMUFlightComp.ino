@@ -1,4 +1,10 @@
-// Flight Computer 5.5.23
+/*
+ * Rachel Handran 
+ * Flight Computer 5.19.23 with PCB v2.0
+ * Current working state: Prints out IMU calibration and accel, mag, 
+ * and gyro data to the serial monitor and writes to a file called "IMUTESTX.txt" 
+ * where X is a number
+*/
 
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>  // IMU
@@ -117,7 +123,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   
-  initialize();
+ initialize(); //SDcard
   setupBMP(); 
   myIMU.begin();
 
@@ -127,33 +133,91 @@ void setup() {
   delay(DELAY_FIVE);
 }
 
-void loop() {
+void loop() {  
+  
+  //String bmp_output = String(bmp.temperature) + "*C," + String(bmp.pressure/100.0) + "hPa," + String(bmp.readAltitude(SEALEVELPRESSURE_HPA)) + "m" ;
+
   // put your main code here, to run repeatedly:
-  uint8_t system, gyros, accel, mg = 0;
-  myIMU.getCalibration(&system, &gyros, &accel,&mg);
+  uint8_t sys, gyros, accel, mg = 0;
+  myIMU.getCalibration(&sys, &gyros, &accel,&mg);
 
   imu::Vector<3> acc = myIMU.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
   imu::Vector<3> gyr = myIMU.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
   imu::Vector<3> mag = myIMU.getVector(Adafruit_BNO055::VECTOR_MAGNETOMETER);
 
-
-  String imu_output = String(accel) + "," + String(gyros)+ "," + String(mg) + "," + String(system)  + "," + 
+  /*
+  String imu_output = String(accel) + "," + String(gyros)+ "," + String(mg) + "," + String(sys)  + "," + 
       String(acc.x()) + "," + String(acc.y()) + "," + String(acc.z()) + "," + 
       String(gyr.x()) + "," + String(gyr.y()) + "," + String(gyr.z()) + "," +
-      String(mag.x()) + "," + String(mag.y()) + "," + String(mag.z()) + ","; 
-  
-  String altitude = String(bmp.readAltitude(SEALEVELPRESSURE_HPA));
+      String(mag.x()) + "," + String(mag.y()) + "," + String(mag.z()) + ",";
+  */
 
-  //String combo = String(imu_output) + String(bmp_output);
-  // Print to terminal
+  // Print to terminal OLD TESTS
 
-  Serial.println(imu_output);
-  //Serial.println(altitude);
-  //Serial.println(combo);
-  
+  //String combo = "" + imu_output + "" + bmp_output + "";
+  //Serial.println(bmp_output);
+  //writeFile("test333.txt", bmp_output);
+
+// NEW TESTS: 5.19.23
+/////Serial.println(imu_output);
+
+  Serial.println(sys);
+  Serial.println(accel);
+  Serial.println(gyros);
+  Serial.println(mg);
+
+  Serial.print("Acc x: ");  
+  Serial.println(acc.x());
+  Serial.print("Acc y: ");  
+  Serial.println(acc.y());
+  Serial.print("Acc z: ");  
+  Serial.println(acc.z());
+  Serial.print("Mag x: ");  
+  Serial.println(mag.x());
+  Serial.print("Mag y: ");  
+  Serial.println(mag.y());
+  Serial.print("Mag z: ");  
+  Serial.println(mag.z());
+  Serial.print("Gyr x: ");  
+  Serial.println(gyr.x());
+  Serial.print("Gyr y: ");  
+  Serial.println(gyr.y());
+  Serial.print("Gyr z: ");  
+  Serial.println(gyr.z());
+
   // Write to SD Card file
-  //writeFile("test5.txt", imu_output);
-  //writeFile("test4.txt", bmp_output);
+
+  //Taken from writeFile() function above, for testing, copy that original code
+  myFile = SD.open("IMUtest3.txt", FILE_WRITE);
+  myFile.write("syscal: ");
+  myFile.println(sys);
+  myFile.write("acccal: ");
+  myFile.println(accel);
+  myFile.write("gyrocal: ");
+  myFile.println(gyros);
+  myFile.write("mgcal: ");
+  myFile.println(mg);
+
+  myFile.write("Acc.x: ");
+  myFile.println(acc.x());
+  myFile.write("Acc.y: ");
+  myFile.println(acc.y());
+  myFile.write("Acc.z: ");
+  myFile.println(acc.z());
+  myFile.write("Mag.x: ");
+  myFile.println(mag.x());
+  myFile.write("Mag.y: ");
+  myFile.println(mag.y());
+  myFile.write("Mag.z: ");
+  myFile.println(mag.z());
+  myFile.write("Gyr.x: ");
+  myFile.println(gyr.x());
+  myFile.write("Gyr.y: ");
+  myFile.println(gyr.y());
+  myFile.write("Gyr.z: ");
+  myFile.println(gyr.z());
+
+  myFile.close();
 
   delay(BNO055_SAMPLERATE_DELAY_MS);
 }
