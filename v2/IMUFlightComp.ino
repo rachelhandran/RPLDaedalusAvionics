@@ -1,11 +1,11 @@
 /*
  * Rachel Handran 
  * Flight Computer 5.19.23 with PCB v2.0
- * Current working state: Prints out IMU calibration and accel, mag, 
- * and gyro data to the serial monitor and writes to a file called "IMUTESTX.txt" 
- * where X is a number
- * CSV Format: calibration first, then raw data
- *    system,accel,gyro,mg,acc.x(),acc.y(),acc.z(),gyr.x(),gyr.y(),gyr.z(),mag.x(),mag.y(),mag.z(),
+ * Current working state: Successfully prints out BMP and IMU calibration and accel, mag, 
+ * and gyro data to the serial monitor and writes to a file called on the SD. 
+ * 
+ * CSV Format: bmp data, imu calibration, then imu raw data
+ *    bmp.temp,bmp.pressure,bmp.altitude,system,accel,gyro,mg,acc.x(),acc.y(),acc.z(),gyr.x(),gyr.y(),gyr.z(),mag.x(),mag.y(),mag.z()
 */
 
 #include <Adafruit_Sensor.h>
@@ -154,15 +154,16 @@ void loop() {
       String(mag.x()) + "," + String(mag.y()) + "," + String(mag.z()) + ",";
   */
 
-  // Print to terminal OLD TESTS
+// NEW Development: 5.19.23
 
-  //String combo = "" + imu_output + "" + bmp_output + "";
-  //Serial.println(bmp_output);
-  //writeFile("test333.txt", bmp_output);
-
-// NEW TESTS: 5.19.23
-/////Serial.println(imu_output);
   Serial.println("");
+  Serial.print(bmp.temperature);
+  Serial.print(",");  
+  Serial.print(bmp.pressure/100.0);
+  Serial.print(",");  
+  Serial.print(bmp.readAltitude(SEALEVELPRESSURE_HPA));
+  Serial.print(",");  
+
   Serial.print(sys);
   Serial.print(",");  
   Serial.print(accel);
@@ -196,8 +197,14 @@ void loop() {
   // Write to SD Card file
 
   //Taken from writeFile() function above, for testing, copy that original code
-  myFile = SD.open("IMUtestX.txt", FILE_WRITE);
-
+  myFile = SD.open("BMPTEST2.txt", FILE_WRITE);
+ 
+  myFile.print(bmp.temperature);
+  myFile.write(",");
+  myFile.print(bmp.pressure/100.0);
+  myFile.write(",");
+  myFile.print(bmp.readAltitude(SEALEVELPRESSURE_HPA));
+  myFile.write(",");
 
   myFile.print(sys);
   myFile.write(",");
@@ -226,11 +233,10 @@ void loop() {
   myFile.print(mag.y());
   myFile.write(",");
   myFile.print(mag.z());
+ 
   myFile.write("\n");
 
-
-
   myFile.close();
-
+ 
   delay(BNO055_SAMPLERATE_DELAY_MS);
 }
