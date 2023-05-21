@@ -14,7 +14,7 @@ It also plays a constant buzz to inform that data is successfully reading and wr
 5.21.23
 ![front](img/fullAvi1.png)
 ![side](img/fullAvi2.png)
-![back](img/fullAvi3.png)
+![back](img/fullavi3.png)
 ![other side](img/fullAvi4.png)
 
 
