@@ -10,6 +10,14 @@ CSV format:
 
 It also plays a constant buzz to inform that data is successfully reading and writing to SD. If not buzzing, the SD Card is likely not initialized properly. Eject and re-enter, and click RESET on the Arduino. Continue until the buzz begins.
 
+## Hardware Setup
+5.21.23
+![front](img/fullAvi1.png)
+![side](img/fullAvi2.png)
+![back](img/fullAvi3.png)
+![other side](img/fullAvi4.png)
+
+
 ## PCB v2.0
 5.6.23
 
