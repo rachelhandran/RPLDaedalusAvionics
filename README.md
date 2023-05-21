@@ -1,5 +1,15 @@
 # RPL NMP Avionics
 
+## IMUFlightComp.ino
+5.20.23 
+
+This is the newest flight computer software that interfaces with the PCB v2.0. It has support for BMP388 temperature, pressure, and altitude sensing, as well as IMU 9DoF Raw Data: Accelerometer, Gyroscope, and Magnetometer data. The software reads all the above data, including IMU calibration status data, and writes them to the SD card in CSV format.
+
+CSV format:
+*Temperature (C), Pressure (hPa), Altitude (m), IMU Calibration (System), IMU Calibration (Accelerometer), IMU Calibration (Gyroscope), IMU Calibration (Magnetometer), Accel_X (m/s^2), Accel_Y (m/s^2), Accel_Z (m/s^2), Gyro_X (rad/s), Gyro_Y (rad/s), Gyro_Z(rad/s), Mag_X (uT), Mag_Y (uT), Mag_Z (uT)*
+
+It also plays a constant buzz to inform that data is successfully reading and writing to SD. If not buzzing, the SD Card is likely not initialized properly. Eject and re-enter, and click RESET on the Arduino. Continue until the buzz begins.
+
 ## PCB v2.0
 5.6.23
 
