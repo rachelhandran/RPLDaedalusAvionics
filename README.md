@@ -1,6 +1,6 @@
 # RPL NMP Avionics
 
-## IMUFlightComp.ino
+## v2/IMUFlightComp.ino
 5.20.23 
 
 This is the newest flight computer software that interfaces with the PCB v2.0. It has support for BMP388 temperature, pressure, and altitude sensing, as well as IMU 9DoF Raw Data: Accelerometer, Gyroscope, and Magnetometer data. The software reads all the above data, including IMU calibration status data, and writes them to the SD card in CSV format.
