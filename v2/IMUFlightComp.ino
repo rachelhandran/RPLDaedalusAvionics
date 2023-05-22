@@ -3,7 +3,6 @@
  * Flight Computer 5.19.23 with PCB v2.0
  * Current working state: Successfully prints out BMP and IMU calibration and accel, mag, 
  * and gyro data to the serial monitor and writes to a file called on the SD. 
- * Piezo buzzer plays constant tone for finding rocket after launch and recovery.
  * 
  * CSV Format: bmp data, imu calibration, then imu raw data
  *    bmp.temp,bmp.pressure,bmp.altitude,system,accel,gyro,mg,acc.x(),acc.y(),acc.z(),gyr.x(),gyr.y(),gyr.z(),mag.x(),mag.y(),mag.z()
@@ -18,7 +17,6 @@
 #include <SD.h>
 
 // Global constants
-#define FLIGHT FALSE // TRUE means will only upload the flight info, no serial prints (keep FALSE)
 #define IS_DEBUG TRUE // FALSE cancels most print statements, all functions read/write still work
 #define IS_DEBUG_BMP FALSE // Keep FALSE
 #define DELAY_FIVE (5000)
@@ -81,9 +79,7 @@ void initialize(){
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
-
-  pinMode(2, OUTPUT);
-
+  
   initialize(); //SDcard
   setupBMP(); 
   myIMU.begin();
@@ -94,9 +90,6 @@ void setup() {
 }
 
 void loop() {  
-  // Piezo buzzer 5.20.23
-  tone(2, 392); //G
-  
   // put your main code here, to run repeatedly:
   uint8_t sys, gyros, accel, mg = 0;
   myIMU.getCalibration(&sys, &gyros, &accel,&mg);
@@ -114,7 +107,6 @@ void loop() {
 
 // NEW Development: 5.19.23
 
-  #if !FLIGHT
   Serial.println("");
   Serial.print(bmp.temperature);
   Serial.print(",");  
@@ -151,12 +143,12 @@ void loop() {
   Serial.print(mag.y());
   Serial.print(",");  
   Serial.print(mag.z());
-  #endif
+
   
   // Write to SD Card file
 
   //Taken from writeFile() function in previoous versions, for testing, copy that original code
-  myFile = SD.open("BMPTEST7.txt", FILE_WRITE);
+  myFile = SD.open("BMPTEST2.txt", FILE_WRITE);
  
   myFile.print(bmp.temperature);
   myFile.write(",");
