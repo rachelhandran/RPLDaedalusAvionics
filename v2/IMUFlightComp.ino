@@ -17,6 +17,7 @@
 #include <SD.h>
 
 // Global constants
+#define FLIGHT FALSE // TRUE means will only upload the flight info, no serial prints (keep FALSE)
 #define IS_DEBUG TRUE // FALSE cancels most print statements, all functions read/write still work
 #define IS_DEBUG_BMP FALSE // Keep FALSE
 #define DELAY_FIVE (5000)
@@ -107,6 +108,7 @@ void loop() {
 
 // NEW Development: 5.19.23
 
+#if !FLIGHT
   Serial.println("");
   Serial.print(bmp.temperature);
   Serial.print(",");  
@@ -143,12 +145,12 @@ void loop() {
   Serial.print(mag.y());
   Serial.print(",");  
   Serial.print(mag.z());
-
+#endif
   
   // Write to SD Card file
 
   //Taken from writeFile() function in previoous versions, for testing, copy that original code
-  myFile = SD.open("BMPTEST2.txt", FILE_WRITE);
+  myFile = SD.open("FLIGHT.txt", FILE_WRITE);
  
   myFile.print(bmp.temperature);
   myFile.write(",");
