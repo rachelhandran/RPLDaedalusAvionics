@@ -1,4 +1,12 @@
-# RPL NMP Avionics
+# RPL Daedalus Avionics
+
+5.11.24
+Welcome! This is my guide for the RPL Daedalus Project Avionics, in particular, the software and PCB files I designed and used on my rocket during the 2022-2023 cohort.
+I used an Arduino Nano to drive 2 sensors, a pressure/altitude/temperature sensor (BMP388), and an IMU/gyroscope/accelerometer/magnetometer (BNO055). The system also includes an SD Card and Module, and a battery. The code written is designed to read pressure/temp/altitude, IMU data, and write it to the SD Card.
+
+The PCB Files are attached, I designed in Eagle. Feel free to copy and edit these files to add or remove any functionalities.
+
+See my latest version and updates below.
 
 ## v2/IMUFlightComp.ino
 5.20.23 
@@ -8,7 +16,7 @@ This is the newest flight computer software that interfaces with the PCB v2.0. I
 CSV format:
 *Temperature (C), Pressure (hPa), Altitude (m), IMU Calibration (System), IMU Calibration (Accelerometer), IMU Calibration (Gyroscope), IMU Calibration (Magnetometer), Accel_X (m/s^2), Accel_Y (m/s^2), Accel_Z (m/s^2), Gyro_X (rad/s), Gyro_Y (rad/s), Gyro_Z(rad/s), Mag_X (uT), Mag_Y (uT), Mag_Z (uT)*
 
-It also plays a constant buzz to inform that data is successfully reading and writing to SD. If not buzzing, the SD Card is likely not initialized properly. Eject and re-enter, and click RESET on the Arduino. Continue until the buzz begins.
+This version of code also supports a Piezo buzzer (but the PCB does not have a spot for the buzzer, this code can only be used on a system designed with a buzzer.) This version plays a constant buzz to inform that data is successfully reading and writing to SD. If not buzzing, the SD Card is likely not initialized properly. Eject and re-enter, and click RESET on the Arduino. Continue until the buzz begins.
 
 ## Hardware Setup
 5.21.23
@@ -34,10 +42,9 @@ Schematic:
 
 ## v1.0
 
-
 This is the flight computer for our NMP Avionics system. 
 
-*The software is designed for BMP388 only. Software is not necessarily compatible for BMP280. Hardware IS compatible with both, but you must write your own code for the BMP280.*
+*The software is designed for BMP388 only. Software is not necessarily compatible for BMP280. Hardware IS compatible with both, but you must write your own code to call the BMP280 library instead of the BMP388.*
 
 `flightComputer.ino` is the flight program. Once uploaded, there will be a 5s delay, then the BMP388 sensor will read in temp, pressure, and altitude data, and write to a file in the SD card once every 100ms.
 
@@ -63,7 +70,7 @@ On the PCB, GND is the 2nd pin from the right. Match the GND pin of your compone
 
 # Notes:
 ## Memory
-How long will it take to fill a 32gb SD card?
+How long will it take to fill a 32gb SD card with this data (25 bytes per line)?
 - In CSV file, 25 chars = 25 bytes per line
 	- 25 bytes / 0.1 second
 	- 250 bytes / 1 second
